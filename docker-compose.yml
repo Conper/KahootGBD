@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:latest
+    container_name: KahootDB
+    environment:
+      POSTGRES_USER: postgresk
+      POSTGRES_PASSWORD: postgresk
+      POSTGRES_DB: kahoot
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: unless-stopped
